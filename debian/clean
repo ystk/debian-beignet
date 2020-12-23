@@ -1,0 +1,16 @@
+backend/src/ocl_common_defines_str.cpp
+backend/src/ocl_stdlib_str.cpp
+backend/src/ocl_vector.h
+CMakeFiles/CMakeDetermineCompilerABI_C.bin
+CMakeFiles/CMakeDetermineCompilerABI_CXX.bin
+CMakeFiles/CompilerIdC/a.out
+CMakeFiles/CompilerIdCXX/a.out
+kernels/builtin_*_float*.cl
+kernels/compiler_ceil.bin
+src/kernels/cl_internal_*.c
+src/kernels/cl_internal_built_in_kernel.cl
+src/git_sha1.h
+utests/*.bmp
+utests/*.pyc
+utests/generated/*
+docs_build

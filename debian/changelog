@@ -1,0 +1,559 @@
+beignet (1.3.0-3~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+  * Use an LLVM/Clang version that exists in jessie-backports.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Sat, 13 May 2017 08:13:05 +0100
+
+beignet (1.3.0-3) unstable; urgency=medium
+
+  * Fix "Exec...-5" error on older hardware.  (Closes: #860805)
+  * Use LLVM 3.8 on x32 to fix FTBFS.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Tue, 02 May 2017 23:23:11 +0100
+
+beignet (1.3.0-2~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+  * Use an LLVM/Clang version that exists in jessie-backports.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Sun, 05 Mar 2017 10:35:43 +0000
+
+beignet (1.3.0-2) unstable; urgency=medium
+
+  * Statically link to LLVM to allow installation together with
+    mesa-opencl-icd (workaround for #852746).
+  * Disable OpenCL 2.0 on i386, as it is likely to crash.
+    (Closes: #855651)
+  * Add missing build-dependencies on x32 to fix FTBFS.
+  * Fix broken link in documentation.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Tue, 21 Feb 2017 22:45:18 +0000
+
+beignet (1.3.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop patches applied upstream, refresh others.
+  * Drop allow-+-in-directory.patch, as it no longer applies
+    (the default build directory has not required it for some time).
+  * Update d/copyright.
+  * Document cl_khr_gl_sharing status.
+  * Add spelling.patch.
+  * Enable OpenCL 2.0 where possible.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Sun, 22 Jan 2017 21:47:49 +0000
+
+beignet (1.2.1-2) unstable; urgency=medium
+
+  * Fix invalid-iterator crash when compiling large kernels.
+  * Switch to LLVM 3.9, and fix a hang caused by this.
+  * Fail, don't assert, on failed context creation.  (Closes: #848792)
+  * Better document #848368 workarounds.
+  * Fix pocl link in documentation.
+  * Add AppStream metadata.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Mon, 16 Jan 2017 19:46:06 +0000
+
+beignet (1.2.1-1) unstable; urgency=medium
+
+  * New upstream release.  (Closes: #844370)
+  * Drop patches applied upstream, refresh others.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Tue, 15 Nov 2016 07:21:49 +0000
+
+beignet (1.2.0-3) unstable; urgency=medium
+
+  * Remove multiarch-breaking timestamps.  (Closes: #840768)
+  * Fix nonclickable links in documentation.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Sun, 16 Oct 2016 14:31:27 +0100
+
+beignet (1.2.0-2) unstable; urgency=medium
+
+  * Fix FTBFS on kfreebsd-*.  (Closes: #840045)
+  * Make tests work with Python 3 and switch back to it.
+  * Add pow-powr-tests.patch.
+  * Add LLVM 3.9 support.
+  * Ship and document testing tool.  Remove Enable-tests-debug.patch
+    for upstream compatibility, and enable PIE.
+  * Update documentation, fix spelling and grammar.
+  * Add clGetKernelSubGroupInfoKHR to _cl_icd_dispatch table.
+  * Fix FTBFS with drm 2.4.71.  (Closes: #840107)
+  * Use backports LLVM in backports, and document that this might
+    require also using backports mesa.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Thu, 13 Oct 2016 19:28:41 +0100
+
+beignet (1.2.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop patches applied upstream, refresh others.
+  * Move cl_intel_accelerator to cl_intel.h to fix FTBFS with
+    system cl_ext.h.
+  * Switch to LLVM 3.8 everywhere.
+  * Update and improve documentation.
+  * Re-enable test suite (disabled by default upstream).
+  * Skip tests with known issues.
+  * Build with Python 2, as Python 3 silently skips many of the tests.
+  * Fix broken list syntax in documentation.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Fri, 09 Sep 2016 14:20:24 +0100
+
+beignet (1.1.2-5) unstable; urgency=medium
+
+  * Stop build-depending on LLVM 3.7 on release architectures.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Wed, 17 Aug 2016 22:34:29 +0100
+
+beignet (1.1.2-4) unstable; urgency=medium
+
+  * Fix build with GCC 6. (Closes: #831196)
+  * Fix broken internal links in documentation.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Fri, 15 Jul 2016 07:47:59 +0100
+
+beignet (1.1.2-3~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+  * Use an LLVM/Clang version that exists in jessie.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Tue, 28 Jun 2016 21:52:09 +0100
+
+beignet (1.1.2-3) unstable; urgency=medium
+
+  * Make profiling work on multiarch systems.
+  * Return failure (instead of asserting) on input containing
+    unresolvable function calls.
+  * Update update-docs.patch.
+  * Convert documentation to HTML.
+  * Move most documentation to beignet-dev.
+  * Register documentation in doc-base.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Sat, 18 Jun 2016 19:21:38 +0100
+
+beignet (1.1.2-2) unstable; urgency=medium
+
+  [ Andreas Beckmann ]
+  * Drop the -dbg package in favor of autogenerated -dbgsym packages.
+
+  [ Rebecca N. Palmer ]
+  * Remove SSE(2) #defines to fix i386 FTBFS. (Closes: #823438)
+  * Make test runner work on i386.
+  * Enable debug output in profiling_exec test.
+  * Re-add find-python35.patch: kfreebsd-* still needs it.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Wed, 04 May 2016 20:47:54 +0100
+
+beignet (1.1.2-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop patches applied upstream, refresh others.
+  * Drop find-python35.patch: this has now been fixed in cmake.
+  * Use same LLVM/Clang version as mesa.
+  * Use https in Vcs-Git and Homepage.
+  * Bump Standards-Version to 3.9.8 (no changes needed).
+  * Enable bindnow hardening.
+  * Update and sort d/copyright.
+  * Improve reportbug script.
+  * Update/clarify update-docs.patch and package description
+    (mostly what hardware is supported).
+  * Use std::isnan/isinf to fix Ubuntu FTBFS.
+  * Add LLVM 3.8 support.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Sat, 30 Apr 2016 23:04:19 +0100
+
+beignet (1.1.1-2) unstable; urgency=medium
+
+  * Add patches to support LLVM 3.6/3.7,
+    use system default version. (Closes: #803643)
+  * Fix two printf bugs.
+  * Declare Built-Using for statically linked libclang.
+  * Fix shutdown order bug ("i915 kernel driver may not be sane").
+  * Better document that linux >= 4.2 fixes the
+    "no __local on Haswell" bug.
+  * Fix FTBFS on kfreebsd-*.
+  * Work around Ubuntu cmake not finding Python. (LP: #1515419)
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Thu, 12 Nov 2015 21:27:16 +0000
+
+beignet (1.1.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update and improve d/copyright.
+  * Drop patches applied upstream, refresh others.
+  * Update update-docs.patch.
+  * Drop outdated README.Debian.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Tue, 20 Oct 2015 08:09:00 +0100
+
+beignet (1.0.3+dfsg-1~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sun, 09 Aug 2015 22:04:28 +0200
+
+beignet (1.0.3+dfsg-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Drop patches applied upstream, refresh others.
+  * Fix bug in builtin_pow test.
+  * Fix excessive rounding error in tgamma.
+  * Update d/copyright.
+  * Build with Python 3.
+  * Drop Enhance-debug-output.patch.
+  * Add reportbug script.
+  * Drop Link-against-terminfo.patch, llvm-config --system-libs and
+    related dependencies, as they are not needed when dynamically
+    linking libllvm.
+  * Disable devices where __local silently does nothing,
+    and document workarounds.
+  * Make libx11-dev dependency explicit.
+  * Disable fast atomics, they break too much.
+  * Remove non-DFSG gpuocelot code.
+  * Fix build in directories containing +, such as those based on
+    the version number.
+  * Upload to unstable.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Tue, 19 May 2015 13:38:33 +0100
+
+beignet (1.0.2-2) experimental; urgency=medium
+
+  * Check drm_intel_gem_bo_context_exec return code. (Closes: #781875)
+  * Revert to LLVM/Clang 3.5.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Mon, 13 Apr 2015 13:36:10 +0200
+
+beignet (1.0.2-1) experimental; urgency=medium
+
+  [ Andreas Beckmann ]
+  * New upstream release.
+  * Ignore git submodule definitions while importing upstream tarballs.
+  * Add licence information for unused libva convenience copy.
+
+  [ Rebecca N. Palmer ]
+  * Enable building on hurd-i386 and x32.
+  * Fix FTBFS on kfreebsd-*.
+  * Drop patches applied upstream, refresh others.
+  * Drop no longer needed Utest-requires-deprecated-function-names.patch.
+  * Stop using -msse*, to allow at least returning a useful error on
+    old unsupported hardware.
+  * Give a single helpful error message, not many confusing ones,
+    on unsupported hardware.
+  * Fix crash if /dev/dri/card0 is inaccessible.
+  * Enable standard-compliant precision by default.
+  * Simplify LLVM/Clang version selection.
+  * Dynamically link to libllvm.
+  * Build-depend on python, not python-minimal.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Wed, 18 Mar 2015 21:02:13 +0000
+
+beignet (1.0.1-3) experimental; urgency=medium
+
+  [ Rebecca N. Palmer ]
+  * Fix two crashes on unsupported hardware.  (Closes: #779213)
+  * Fix buffer overflow in error handling.
+  * Enable multiarch.
+
+  [ Andreas Beckmann ]
+  * Ensure proper removal of the pre-multiarch intel-beignet.icd.
+
+ -- Andreas Beckmann <anbe@debian.org>  Fri, 27 Feb 2015 19:24:47 +0100
+
+beignet (1.0.1-2) experimental; urgency=medium
+
+  * Force LLVM 3.5 to fix FTBFS in Ubuntu.
+  * Document that Bay Trail is supported, clarify descriptions.
+
+ -- Rebecca N. Palmer <rebecca_palmer@zoho.com>  Mon, 16 Feb 2015 09:52:55 +0000
+
+beignet (1.0.1-1) experimental; urgency=medium
+
+  [ Andreas Beckmann ]
+  * New upstream release.
+  * Add -dbg package with debug symbols.
+  * Update watch file.
+  * Refresh patches.
+  * llvm-search-order.patch: New. Prefer newer llvm versions.
+  * remove-unsafe-define-D__-USER-__.patch: New. Drop unsafe -D__$(USER)__
+    flag. Breaks on non-alpha-numerical chars ('-', '.') and usernames like
+    'asm', 'attribute', 'i386', 'x86_64', ...
+
+  [ Rebecca N. Palmer ]
+  * Use -Bsymbolic to make sure we jump to our LLVM and not MESA's.
+    (Closes: #768185)
+  * Rename to beignet-opencl-icd for consistency.
+  * Add more debug output to builtin_pow test.
+  * Fix bug in compiler_fill_image_1d_array test setup.
+  * Return failure instead of aborting on cl_mem_allocate failure.
+  * Delete all generated files in clean target.
+  * Drop OpenGL dependencies, as CL-GL sharing hasn't worked
+    for several releases and was now dropped upstream.  (Closes: #712862)
+  * Make -dev depend on ocl-icd-opencl-dev, and clarify description.
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 07 Feb 2015 12:48:16 +0100
+
+beignet (1.0.0-1) experimental; urgency=medium
+
+  [ Andreas Beckmann ]
+  * New upstream release.  (Closes: #769403)
+    - Fix tgamma, pow, pown, erf, erfc  (Closes: #768090)
+    - Drop upstream patches.
+    - Refresh patches.
+  * d/copyright: Upstream switched to a consistent usage of LGPL-2.1+.
+    Switch the packaging, too.
+  * README.Debian: Document interoperability problem with mesa-opencl-icd.
+  * Ship documentation.
+  * Upload to experimental.
+
+  [ Rebecca N. Palmer ]
+  * Re-enable GBE_DEBUG (lost when debhelper switched to
+    None build type)
+  * Enable extra debug output in tests
+  * Document in the description what hardware this supports.
+
+ -- Andreas Beckmann <anbe@debian.org>  Tue, 18 Nov 2014 14:58:00 +0100
+
+beignet (0.9.3~dfsg-1) unstable; urgency=medium
+
+  [ Julian Wollrath ]
+  * New upstream release.  (Closes: #759707, #745363, #745767) (LP: #1372889)
+    + Supports llvm 3.5.  (Closes: #764930) (LP: #1350773)
+  * Add B-D on libedit-dev and zlib1g-dev.
+  * Add debian/watch file.
+  * Update debian/copyright.
+
+  [ Andreas Beckmann ]
+  * Set Maintainer to "Debian OpenCL Maintainers" with Simon's permission.
+  * Add Simon Richter, Rebecca N. Palmer and myself to Uploaders.
+  * Repack upstream tarball to remove non-distributable Len(n)a images and
+    CC-BY-NC-SA licensed parts from the test suite.  (Closes: #767387)
+  * 0001-fix-some-typos.patch: New.
+  * 0002-use-env-to-set-environment-variables-for-GBE_BIN_GEN.patch: New, fix
+    FTBFS of "~dfsg" versions in pbuilder etc.
+  * 0003-GBE-fix-one-compilation-warning.patch: New. Cherry-picked from
+    upstream 0.9.x branch.
+  * Skip-deleted-tests.patch: New. Thanks to Rebecca N. Palmer.
+  * Simplify using system OpenCL headers.
+  * Use-Khronos-Group-headers.patch: Removed.
+  * d/control: Fix some issues found by lintian.
+  * Bump Standards-Version to 3.9.6 (no changes needed).
+  * Import debian/ packaging history into GIT. Add Vcs-* URLs.
+
+ -- Andreas Beckmann <anbe@debian.org>  Mon, 03 Nov 2014 14:23:48 +0100
+
+beignet (0.8-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Adjust clang Build-Depends. (Closes: #759933)
+    + Thanks to Julian Wollrath for it.
+  * Cherry pick upstream patch to fix licensing issue. (Closes: #757395)
+    + Thanks to Julian Wollrath for it.
+  * Refresh debug patch.
+
+ -- Julián Moreno Patiño <julian@debian.org>  Thu, 11 Sep 2014 10:44:01 -0500
+
+beignet (0.8-1) unstable; urgency=low
+
+  * New upstream release (Closes: #739534)
+
+ -- Simon Richter <sjr@debian.org>  Sat, 19 Apr 2014 15:52:26 +0200
+
+beignet (0.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Wed, 23 Oct 2013 21:33:44 +0200
+
+beignet (0.2+git20130928+187c17e-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Sat, 28 Sep 2013 14:19:29 +1000
+
+beignet (0.2+git20130816+cc09b26-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Fri, 16 Aug 2013 12:07:35 +0200
+
+beignet (0.2+git20130807+c4d1f40-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Wed, 07 Aug 2013 16:14:06 +0200
+
+beignet (0.2+git20130730+da26376-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Tue, 30 Jul 2013 13:43:36 +0200
+
+beignet (0.2+git20130710+613e829-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Wed, 10 Jul 2013 15:25:14 +0200
+
+beignet (0.2-2) unstable; urgency=low
+
+  * Patch OpenCL C version
+
+ -- Simon Richter <sjr@debian.org>  Fri, 05 Jul 2013 15:27:32 +0200
+
+beignet (0.2-1) unstable; urgency=low
+
+  * New upstream release (Closes: #712903)
+
+ -- Simon Richter <sjr@debian.org>  Fri, 05 Jul 2013 15:01:51 +0200
+
+beignet (0.1+git20130703+84f63e8-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Wed, 03 Jul 2013 09:52:32 +0200
+
+beignet (0.1+git20130626+41005e0-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Wed, 26 Jun 2013 10:06:29 +0200
+
+beignet (0.1+git20130625+97c3a9b-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Tue, 25 Jun 2013 13:52:00 +0200
+
+beignet (0.1+git20130621+30586bf-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Fri, 21 Jun 2013 12:08:49 +0200
+
+beignet (0.1+git20130619+42967d2-2) unstable; urgency=low
+
+  * Drop EGL support for kFreeBSD for the time being
+
+ -- Simon Richter <sjr@debian.org>  Thu, 20 Jun 2013 11:18:59 +0200
+
+beignet (0.1+git20130619+42967d2-1) unstable; urgency=low
+
+  * New upstream release
+  * Build against Mesa 9
+  * Enable GL sharing extension
+
+ -- Simon Richter <sjr@debian.org>  Wed, 19 Jun 2013 20:48:03 +0200
+
+beignet (0.1+git20130614+89b5e40-2) unstable; urgency=low
+
+  * Add Ubuntu support
+  * Upload to unstable to get an ICD capable package there
+
+ -- Simon Richter <sjr@debian.org>  Fri, 14 Jun 2013 17:40:45 +0200
+
+beignet (0.1+git20130614+89b5e40-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Fri, 14 Jun 2013 15:22:18 +0200
+
+beignet (0.1+git20130521+a7ea35c-1) experimental; urgency=low
+
+  * Rename binary package
+
+ -- Simon Richter <sjr@debian.org>  Tue, 21 May 2013 10:48:39 +0200
+
+beignet (0.1+git20130521+a7ea35c-1~prerename) experimental; urgency=low
+
+  * New upstream release
+  * Move libraries to /usr/lib/beignet (should not be used directly)
+
+ -- Simon Richter <sjr@debian.org>  Tue, 21 May 2013 09:17:45 +0200
+
+beignet (0.1+git20130514+19e9c58-1) experimental; urgency=low
+
+  * New upstream release
+  * Added a number of tentative patches
+
+ -- Simon Richter <sjr@debian.org>  Tue, 14 May 2013 20:04:29 +0200
+
+beignet (0.1+git20130502+63e60ed-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Mon, 06 May 2013 06:30:32 +0200
+
+beignet (0.1+git20130426+0c8f6fe-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Fri, 26 Apr 2013 14:42:21 +0200
+
+beignet (0.1+git20130422+003fac5-2) experimental; urgency=low
+
+  * Add patch for select()
+  * Add patch for fmin() / fmax()
+
+ -- Simon Richter <sjr@debian.org>  Mon, 22 Apr 2013 18:26:01 +0200
+
+beignet (0.1+git20130422+003fac5-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Mon, 22 Apr 2013 15:10:54 +0200
+
+beignet (0.1+git20130419+9c11c18-1) experimental; urgency=low
+
+  * Add more functionality patches
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Fri, 19 Apr 2013 14:14:39 +0200
+
+beignet (0.1+git20130418+0546d2e-2) experimental; urgency=low
+
+  * Add functionality patches
+  * Use clang 3.0 command line syntax
+
+ -- Simon Richter <sjr@debian.org>  Fri, 19 Apr 2013 09:53:23 +0200
+
+beignet (0.1+git20130418+0546d2e-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Thu, 18 Apr 2013 11:51:37 +0200
+
+beignet (0.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Tue, 16 Apr 2013 17:16:18 +0200
+
+beignet (0.0.0+git2013.04.11+e6b503e-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Simon Richter <sjr@debian.org>  Mon, 15 Apr 2013 18:22:45 +0200
+
+beignet (0.0.0+git2013.04.01+d1b234c-4) unstable; urgency=low
+
+  * Build fix for kfreebsd-*
+
+ -- Simon Richter <sjr@debian.org>  Fri, 12 Apr 2013 11:22:36 +0200
+
+beignet (0.0.0+git2013.04.01+d1b234c-3) unstable; urgency=low
+
+  * Adjust Build-Depends, Architecture list
+
+ -- Simon Richter <sjr@debian.org>  Fri, 12 Apr 2013 10:32:36 +0200
+
+beignet (0.0.0+git2013.04.01+d1b234c-2) unstable; urgency=low
+
+  * Add patch to support size queries in device info
+
+ -- Simon Richter <sjr@debian.org>  Thu, 11 Apr 2013 14:00:59 +0200
+
+beignet (0.0.0+git2013.04.01+d1b234c-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Simon Richter <sjr@debian.org>  Tue, 09 Apr 2013 17:14:00 +0200
